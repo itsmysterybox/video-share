@@ -13,7 +13,13 @@ class CommentSection {
 	}
 
 	private function createCommentSection() {
+		$numComments = $this->video->getNumberOfComments();
+		$postedBy = $this->userLoggedInObj()->getUsername();
+		$videoId = $this->video->getId();
 
+		$profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
+		$commentAction = "postComment(this, \"$postedBy\", $videoId, null, \"comments\")";
+		$commentButton = ButtonProvider::createButton("COMMENT", null, $commentAction, "postComment");
 	}
 	
 }
