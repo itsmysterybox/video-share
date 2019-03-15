@@ -14,7 +14,7 @@ class CommentSection {
 
 	private function createCommentSection() {
 		$numComments = $this->video->getNumberOfComments();
-		$postedBy = $this->userLoggedInObj()->getUsername();
+		$postedBy = $this->userLoggedInObj->getUsername();
 		$videoId = $this->video->getId();
 
 		$profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
