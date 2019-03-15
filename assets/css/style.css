@@ -225,3 +225,127 @@ a:hover {
 	height: 100%;
 	padding-left: 24px;
 }
+
+.videoInfo {
+	width: 100%;
+	padding: 20px 0 8px 0;
+}
+
+.videoInfo h1 {
+	display: block;
+	overflow: hidden;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.videoInfo .bottomSection {
+	display: flex;
+}
+
+.videoInfo .bottomSection .viewCount {
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 16px;
+	flex: 1;
+}
+
+.videoInfo .bottomSection .controls {
+	flex: 1;
+	text-align: right;
+}
+
+.videoInfo .bottomSection .controls button {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	color: rgba(17, 17, 17, 0.4);
+	font-weight: 500;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.videoInfo .bottomSection .controls button img {
+	height: 20px;
+	width: 20px;
+	margin: 4px 8px 8px 8px;
+}
+
+.secondaryInfo .topRow {
+	display: flex;
+	margin-bottom: 12px;
+}
+
+.profilePicture {
+	height: 100%;
+}
+
+.secondaryInfo .topRow .profilePicture {
+	margin-right: 16px;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+}
+
+.secondaryInfo .topRow .uploadInfo {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
+}
+
+.secondaryInfo .topRow .uploadInfo .date {
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.secondaryInfo .descriptionContainer {
+	margin-left: 64px;
+	max-width: 615px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 21px;
+}
+
+.secondaryInfo {
+	border-bottom: 1px solid #dedede;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.secondaryInfo .topRow .button {
+	padding: 6px 15px;
+	cursor: pointer;
+	font-weight: 500;
+	border-radius: 2px;
+	border: none;
+	font-size: 14px;
+}
+
+.secondaryInfo .topRow .subscribeButtonContainer,
+.secondaryInfo .topRow .editVideoButtonContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.subscribeButtonContainer .subscribe {
+	background-color: #f00;
+	color: #fff;
+}
+
+.subscribeButtonContainer .unsubscribe {
+	background-color: #eee;
+	color: rgba(17, 17, 17, 0.6);
+}
+
+.editVideoButtonContainer .edit {
+	background-color: #2692e6;
+	color: #fff;
+}
+
+.secondaryInfo .topRow .uploadInfo .owner a {
+	font-size: 14px;
+	font-weight: 500;
+	color: #000;
+}
