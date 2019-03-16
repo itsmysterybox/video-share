@@ -9,6 +9,10 @@ a:hover {
 	text-decoration: none;
 }
 
+button:focus {
+	outline: none;
+}
+
 #pageContainer {
   width: 100%;
   height: 100%;
@@ -125,6 +129,8 @@ a:hover {
 	padding: 10px 30px;
 	display: flex;
 	flex: 1;
+	background-color: #fafafa;
+	box-sizing: border-box;
 }
 
 .column {
@@ -217,6 +223,10 @@ a:hover {
 
 .watchLeftColumn .videoPlayer {
 	width: 100%;
+}
+
+.videoPlayer {
+	outline: none;
 }
 
 .suggestions {
@@ -357,7 +367,9 @@ a:hover {
 	flex-direction: column;
 }
 
-.commentSection .header .commentForm .profilePicture {
+.commentSection .header .commentForm .profilePicture,
+.commentSection .comment .profilePicture,
+.commentForm .profilePicture {
 	margin-right: 16px;
 	width: 48px;
 	height: 48px;
@@ -368,11 +380,13 @@ a:hover {
 	margin-bottom: 24px;
 }
 
-.commentSection .header .commentForm {
+.commentSection .header .commentForm,
+.itemContainer .commentForm {
 	display: flex;
 }
 
-.commentSection .header .commentForm textarea {
+.commentSection .header .commentForm textarea,
+.itemContainer .commentForm textarea {
 	flex: 1;
 	border: none;
 	background-color: transparent;
@@ -381,7 +395,13 @@ a:hover {
 	resize: none;
 }
 
-.commentSection .header .commentForm .postComment {
+.itemContainer .commentForm textarea {
+	height: 30px;
+}
+
+.commentSection .header .commentForm .postComment,
+.itemContainer .commentForm .postComment,
+.itemContainer .commentForm .cancelComment {
 	height: 36px;
 	background-color: #2692e6;
 	color: #fff;
@@ -389,4 +409,91 @@ a:hover {
 	border: none;
 	padding: 0 15px;
 	border-radius: 2px;
+}
+
+.itemContainer .commentForm .cancelComment {
+	background-color: transparent;
+	color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .commentForm .cancelComment:hover {
+	color: #000;
+}
+
+.commentSection .itemContainer {
+	margin-bottom: 16px;
+}
+
+.commentSection .comment {
+	display: flex;
+}
+
+.commentSection .CommentHeader {
+	margin-bottom: 2px;
+}
+
+.commentSection .comment .username {
+	margin-right: 8px;
+	color: #111;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.commentSection .comment .body {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.itemContainer .controls {
+	margin-left: 64px;
+}
+
+.itemContainer .controls button,
+.itemContainer .controls .likesCount {
+	height: 32px;
+	background-color: transparent;
+	border: none;
+	font-size: 13px;
+	font-weight: 500;
+	color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .controls button {
+	cursor: pointer;
+}
+
+.itemContainer .controls .likesCount {
+	margin: 0 5px;
+}
+
+.itemContainer .controls button img {
+	height: 16px;
+}
+
+.itemContainer .commentForm .profilePicture {
+	width: 30px;
+	height: 30px;
+}
+
+.commentSection .comment .timestamp {
+	color: #888;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 18px;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.comments .repliesSection {
+	padding-left: 64px;
+	margin-top: 16px;
+}
+
+.commentSection .itemContainer .viewReplies {
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
 }
