@@ -9,7 +9,8 @@ a:hover {
 	text-decoration: none;
 }
 
-button:focus {
+button:focus,
+a:focus {
 	outline: none;
 }
 
