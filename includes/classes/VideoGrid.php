@@ -44,11 +44,27 @@ class VideoGrid {
 	}
 
 	public function generateItemsFromVideo($videos) {
+		$elementsHtml = "";
 
+		foreach ($videos as $video) {
+			$item = new VideoGridItem($video, $this->largeMode);
+			$elementsHtml .= $item->create();
+		}
+
+		return $elementsHtml;
 	}
 
 	public function createGridHeader($title, $showFilter) {
-		return "";
+		$filter = "";
+
+		// Create filter
+
+		return "<div class='videoGridHeader'>
+						<div class='left'>
+							$title
+						</div>
+						$filter
+					</div>";
 	}
 }
 ?>

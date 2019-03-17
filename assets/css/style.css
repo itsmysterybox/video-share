@@ -510,6 +510,7 @@ a:focus {
 }
 
 .videoGridItem {
+	height: 200px;
 	margin-right: 4px;
 	margin-bottom: 24px;
 }
@@ -576,4 +577,15 @@ a:focus {
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.videoGridHeader {
+	display: flex;
+	margin: 10px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.videoGridHeader div {
+	flex: 1;
 }
