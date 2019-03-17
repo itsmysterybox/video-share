@@ -498,3 +498,82 @@ a:focus {
 	font-size: 14px;
 	font-weight: 500;
 }
+
+.videoGrid {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.suggestions .videoGridItem {
+	display: flex;
+	height: auto;
+}
+
+.videoGridItem {
+	margin-right: 4px;
+	margin-bottom: 24px;
+}
+
+.videoGridItem .thumbnail {
+	width: 210px;
+	height: 118px;
+	position: relative;
+}
+
+.suggestions .videoGridItem .thumbnail {
+	margin-right: 8px;
+}
+
+.videoGridItem .thumbnail img {
+	width: 100%;
+	height: 100%;
+}
+
+.videoGridItem .thumbnail .duration {
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	margin: 4px;
+	color: #fff;
+	background-color: rgba(17, 17, 17, 0.8);
+	opacity: 0.8;
+	padding: 2px 4px;
+	border-radius: 2px;
+	letter-spacing: 0.5px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 12px;
+}
+
+.videoGridItem .details {
+	padding-right: 24px;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	width: 210px;
+}
+
+.suggestions .videoGridItem .details {
+	padding-right: 0;
+	flex: 1;
+}
+
+.videoGridItem .details .title {
+	margin: 8px 0;
+	max-height: 32px;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	color: #212529;
+}
+
+.videoGridItem .details .username,
+.videoGridItem .details .stats {
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 13px;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
