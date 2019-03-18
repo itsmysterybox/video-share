@@ -17,8 +17,6 @@ class Video {
 
 			$this->sqlData = $query->fetch(PDO::FETCH_ASSOC);
 		}
-
-		
 	}
 
 	public function getId() {
@@ -34,7 +32,25 @@ class Video {
 	}
 
 	public function getDescription() {
-		return $this->sqlData["description"];
+
+		return $this->formatLinksInText($this->sqlData["description"]);
+	}
+
+	private function formatLinksInText($text) {
+
+	    //Catch all links with protocols
+	    $reg = '/(https?|ftps?)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}([\/\S*]+[^,.;\s])?/';
+	    $text = preg_replace($reg, '<a href="$0" rel="nofollow" target="_blank">$0</a>', $text);
+
+	    //Catch all links without protocol
+	    $reg2 = '/(?<=\s|\A)([0-9a-zA-Z\-\.]+\.[a-zA-Z0-9\/]{2,})(?=\s|$|\,|\.)/';
+	    $text = preg_replace($reg2, '<a href="//$0" rel="nofollow" target="_blank">$0</a>', $text);
+
+	    //Catch all emails
+	    $emailRegex = '/(\S+\@\S+\.\S+)/';
+	    $text = preg_replace($emailRegex, '<a href="mailto:$1" target="_blank" title="$1">$1</a>', $text);
+
+	    return $text;
 	}
 
 	public function getPrivacy() {
