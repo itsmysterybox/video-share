@@ -426,6 +426,18 @@ a:focus {
 	color: #000;
 }
 
+.commentSection .header .customCommentBox {
+	min-height: 20px;
+	padding: 19px;
+	/* margin-bottom: 20px; */
+	background: #eee;
+	border: none;
+}
+
+.commentSection .header .customCommentBox span a:hover {
+	color: #dd4b39;
+}
+
 .commentSection .itemContainer {
 	margin-bottom: 16px;
 }

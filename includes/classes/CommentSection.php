@@ -28,7 +28,8 @@ class CommentSection {
 			$commentItems .= $comment->create();
 		}
 
-		return "<div class='commentSection'>
+		if (User::isLoggedIn()) {
+			return "<div class='commentSection'>
 					<div class='header'>
 						<span class='commentCount'>$numComments Comments</span>
 
@@ -43,6 +44,24 @@ class CommentSection {
 						$commentItems
 					</div>
 				</div>";
+		}
+		else {
+			return "<div class='commentSection'>
+					<div class='header'>
+						<span class='commentCount'>$numComments Comments</span>
+
+						<div class='customCommentBox'>
+							<span>Please <a href='signin.php'>login</a> or <a href='signup.php'>register</a> to post a comment</span>
+						</div>
+					</div>
+
+					<div class='comments'>
+						$commentItems
+					</div>
+				</div>";
+		}
+
+		
 	}
 	
 }
