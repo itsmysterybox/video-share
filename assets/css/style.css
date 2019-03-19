@@ -592,3 +592,76 @@ a:focus {
 .videoGridHeader div {
 	flex: 1;
 }
+
+.videoGrid.large {
+	flex-direction: column;
+	flex: 1;
+	margin-right: 25%;
+}
+
+.videoGrid.large .videoGridItem {
+	height: auto;
+	display: flex;
+}
+
+.videoGrid.large .videoGridItem .thumbnail {
+	width: 246px;
+	height: 138px;
+	margin-right: 16px;
+}
+
+.videoGrid.large .videoGridItem .details {
+	max-width: 600px;
+	min-width: 0;
+	display: inline-block;
+	text-decoration: none;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.videoGrid.large .videoGridItem .details .title {
+	font-size: 18px;
+	line-height: 24px;
+	min-width: 0;
+	margin-right: 8px;
+	margin-bottom: 2px;
+}
+
+.videoGrid.large .videoGridItem .details .username {
+	overflow: hidden;
+	padding-bottom: 2px;
+}
+
+.videoGridItem .details .description {
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 13px;
+	padding-top: 8px;	
+	margin-bottom: 8px;
+	max-height: 3rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 400;
+}
+
+.largeVideoGridContainer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.videoGridHeader .right {
+	text-align: right;
+}
+
+.videoGridHeader a {
+	color: rgba(17, 17, 17, 0.6);
+}
+
+.videoGridHeader a:after {
+	content: ' |';
+}
+
+.videoGridHeader a:last-child:after {
+	content: '';
+}

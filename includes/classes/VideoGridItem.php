@@ -12,12 +12,14 @@ class VideoGridItem {
 		$details = $this->createDetails();
 		$url = "watch.php?id=" . $this->video->getId();
 
-		return "<a href='$url'>
-					<div class='videoGridItem'>
-						$thumbnail
-						$details
-					</div>
-				</a>";
+		return "<div>
+					<a href='$url'>
+						<div class='videoGridItem'>
+							$thumbnail
+							$details
+						</div>
+					</a>
+				</div>";
 	}
 
 	private function createThumbnail() {
@@ -55,7 +57,7 @@ class VideoGridItem {
 			return "";
 		}
 		else {
-			$description = $this->video->getDescription();
+			$description = $this->video->getUnformattedDescription();
 			$description = (strlen($description) > 350) ? substr($description, 0, 347) . "..." : $description;
 			return "<span class='description'>$description</span>";
 		}

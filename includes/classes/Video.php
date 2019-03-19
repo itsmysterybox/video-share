@@ -31,6 +31,10 @@ class Video {
 		return $this->sqlData["title"];
 	}
 
+	public function getUnformattedDescription() {
+		return $this->sqlData["description"];
+	}
+
 	public function getDescription() {
 
 		return $this->formatLinksInText($this->sqlData["description"]);
