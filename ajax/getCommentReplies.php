@@ -7,7 +7,7 @@ $videoId = $_POST["videoId"];
 $commentId = $_POST["commentId"];
 
 if (!User::isLoggedIn()) {
-	$username = "signedOut";
+	$username = "";
 }
 else {
 	$username = $_SESSION["userLoggedIn"];
