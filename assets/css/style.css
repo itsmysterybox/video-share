@@ -3,6 +3,8 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 a:hover {
@@ -564,9 +566,10 @@ a:focus {
 }
 
 .videoGridItem .details .title {
-	margin: 8px 0;
+	margin: 8px 0 2px 0;
 	max-height: 32px;
 	overflow: hidden;
+	text-overflow: ellipsis;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 16px;
@@ -583,6 +586,7 @@ a:focus {
 }
 
 .videoGridHeader {
+	font-size: 14px;
 	display: flex;
 	margin: 10px 0;
 	padding-bottom: 10px;
@@ -613,35 +617,33 @@ a:focus {
 .videoGrid.large .videoGridItem .details {
 	max-width: 600px;
 	min-width: 0;
-	display: inline-block;
 	text-decoration: none;
 	flex: 1;
-	display: flex;
-	flex-direction: column;
 }
 
 .videoGrid.large .videoGridItem .details .title {
 	font-size: 18px;
+	font-weight: 400;
+	max-height: 48px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	line-height: 24px;
 	min-width: 0;
-	margin-right: 8px;
-	margin-bottom: 2px;
+	margin-top: 2px;
 }
 
 .videoGrid.large .videoGridItem .details .username {
 	overflow: hidden;
-	padding-bottom: 2px;
 }
 
 .videoGridItem .details .description {
 	color: rgba(17, 17, 17, 0.6);
 	font-size: 13px;
-	padding-top: 8px;	
-	margin-bottom: 8px;
 	max-height: 3rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-weight: 400;
+	margin-top: 2px;
 }
 
 .largeVideoGridContainer {
@@ -664,4 +666,63 @@ a:focus {
 
 .videoGridHeader a:last-child:after {
 	content: '';
+}
+
+.signInLink {
+	color: #065fd4;
+	border: 1px solid #065fd4;
+	border-radius: 2px 3px;
+	padding: 9px 15px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: .007px;
+	margin-left: 15px;
+	vertical-align: middle;
+}
+
+.signInLink:hover {
+	color: #fff;
+	background-color: #065fd4;
+	transition: all 0.5s ease-out;
+}
+
+#sideNavContainer .navigationItems {
+	overflow-y: auto;
+}
+
+#sideNavContainer .navigationItem {
+	height: 40px;
+	display: flex;
+}
+
+#sideNavContainer .navigationItem img {
+	height: 18px;
+	margin-right: 27px;
+}
+
+#sideNavContainer .navigationItem span {
+	flex: 1;
+	color: #111;
+	font-size: 14px;
+}
+
+#sideNavContainer .navigationItem a {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	padding: 0 24px;
+}
+
+#sideNavContainer .navigationItem a:hover {
+	background-color: rgba(0, 0, 0, 0.04);
+}
+
+#sideNavContainer .heading {
+	color: rgba(17, 17, 17, 0.6);
+	font-size: 14px;
+	font-weight: 500;
+	padding: 10px 24px 0;
+	border-top: 1px solid #ededed;
+	display: block;
 }

@@ -6,6 +6,7 @@ require_once("includes/classes/Video.php");
 require_once("includes/classes/VideoGrid.php");
 require_once("includes/classes/VideoGridItem.php");
 require_once("includes/classes/SubscriptionsProvider.php");
+require_once("includes/classes/NavigationMenuProvider.php");
 
 $usernameLoggedIn = User::isLoggedIn() ? $_SESSION["userLoggedIn"] : "";
 $userLoggedInObj = new User($con, $usernameLoggedIn);
@@ -17,6 +18,7 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
 	<title>VideoTube</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -52,16 +54,17 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
 				<a href="upload.php">
 					<img class="upload" src="assets/images/icons/upload.png">
 				</a>
-				<a href="#">
-					<img class="upload" src="assets/images/profilePictures/default.png">
-				</a>
+				<?php echo ButtonProvider::createUserProfileNavigationButton($con, $userLoggedInObj->getUsername()); ?>
 
 			</div>
 
 		</div>
 
 		<div id="sideNavContainer" style="display: none;">
-			
+			<?php
+			$navigationProvider = new NavigationMenuProvider($con, $userLoggedInObj);
+			echo $navigationProvider->create();
+			?>
 		</div>
 
 		<div id="mainSectionContainer">
