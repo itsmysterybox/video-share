@@ -521,6 +521,10 @@ a:focus {
 	flex-wrap: wrap;
 }
 
+.videoGrid .videoGridItems {
+	margin: 0 2.42px;
+}
+
 .suggestions .videoGridItem {
 	display: flex;
 	height: auto;
@@ -528,7 +532,6 @@ a:focus {
 
 .videoGridItem {
 	height: 200px;
-	margin-right: 4px;
 	margin-bottom: 24px;
 }
 
@@ -737,4 +740,127 @@ a:focus {
 	padding: 10px 24px 0;
 	border-top: 1px solid #ededed;
 	display: block;
+}
+
+.profileContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.profileContainer .coverPhotoContainer {
+	height: calc(100vw / 6.2 - 1px);
+	display: flex;
+	position: relative;
+}
+
+.coverPhotoContainer .coverPhoto {
+	width: 100%;
+	object-fit: cover;
+	max-height: 100%;
+	vertical-align: middle;
+}
+
+.coverPhotoContainer .channelName {
+	position: absolute;
+	top: calc(50% - 40px);
+	font-size: 50px;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	letter-spacing: 5px;
+}
+
+.profileHeader {
+	padding: 15px 100px 0 100px;
+	display: flex;
+	height: 96px;
+}
+
+.profileHeader .userInfoContainer {
+	flex: 1;
+	display: flex;
+}
+
+.profileHeader .userInfoContainer .profileImage {
+	height: 80px;
+	width: 80px;
+	margin-right: 24px;
+}
+
+.profileHeader .userInfoContainer .userInfo {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.profileHeader .userInfoContainer .userInfo .title {
+	font-size: 24px;
+	font-weight: 400;
+	color: #111;
+}
+
+.profileHeader .userInfoContainer .userInfo .subscriberCount {
+	font-size: 14px;
+	color: rgba(17, 17, 17, 0.6);
+}
+
+.profileHeader .buttonContainer {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.profileHeader .buttonContainer .buttonItem {
+	align-items: center;
+	display: flex;
+}
+
+.profileHeader .buttonContainer .buttonItem button {
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: 500;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.profileContainer .channelContent {
+	padding-top: 20px;
+	background-color: #fff;
+	border: none;
+}
+
+.profileContainer .nav-tabs {
+	margin-top: 10px;
+	border: none;
+}
+
+.nav-item a {
+	color: rgba(17, 17, 17, 0.6);
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.nav-item .nav-link.active,
+.nav-item .nav-link:hover {
+	border: none;
+	color: rgb(10, 10, 10);
+}
+
+.nav-item .nav-link.active {
+	background-color: transparent;
+	border-bottom: 3px solid #606060;
+	transition: none;
+}
+
+.channelContent .section {
+	padding: 0 20px 20px 20px;
+}
+
+.channelContent .section .values {
+	color: rgba(17, 17, 17, 0.6);
+	display: flex;
+	flex-direction: column;
 }

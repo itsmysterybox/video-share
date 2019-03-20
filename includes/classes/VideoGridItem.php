@@ -12,7 +12,7 @@ class VideoGridItem {
 		$details = $this->createDetails();
 		$url = "watch.php?id=" . $this->video->getId();
 
-		return "<div>
+		return "<div class='videoGridItems'>
 					<a href='$url'>
 						<div class='videoGridItem'>
 							$thumbnail
