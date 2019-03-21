@@ -4,6 +4,7 @@ require_once("includes/classes/VideoPlayer.php");
 require_once("includes/classes/VideoDetailsFormProvider.php");
 require_once("includes/classes/VideoUploadData.php");
 require_once("includes/classes/SelectThumbnail.php");
+require_once("includes/classes/PurifyInputs.php");
 
 if (!User::isLoggedIn()) {
 	header("Location: signIn.php");
@@ -24,8 +25,8 @@ $detailsMessage = "";
 if (isset($_POST["saveButton"])) {
 	$videoData = new VideoUploadData(
 		null,
-		$_POST["titleInput"],
-		$_POST["descriptionInput"],
+		PurifyInputs::removeHtmlTags($_POST["titleInput"]),
+		PurifyInputs::removeHtmlTags($_POST["descriptionInput"]),
 		$_POST["privacyInput"],
 		$_POST["categoryInput"],
 		$userLoggedInObj->getUsername()
