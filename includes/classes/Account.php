@@ -42,6 +42,56 @@ class Account {
 		}
 	}
 
+	public function updateDetails($fn, $ln, $em, $un) {
+		$this->validateFirstName($fn);
+		$this->validateLastName($ln);
+		$this->validateNewEmail($em, $un);
+
+		if (empty($this->errorArray)) {
+			$query = $this->con->prepare("UPDATE users SET firstName=:fn, lastName=:ln, email=:em WHERE username=:un");
+			$query->bindParam(":fn", $fn);
+			$query->bindParam(":ln", $ln);
+			$query->bindParam(":em", $em);
+			$query->bindParam(":un", $un);
+
+			return $query->execute();
+		}
+		else {
+			return false;
+		}
+	}
+
+	public function updatePassword($oldPw, $pw, $pw2, $un) {
+		$this->validateOldPassword($oldPw, $un);
+		$this->validatePasswords($pw, $pw2);
+
+		if (empty($this->errorArray)) {
+			$query = $this->con->prepare("UPDATE users SET password=:pw WHERE username=:un");
+			$pw = hash("sha512", $pw);
+			$query->bindParam(":pw", $pw);
+			$query->bindParam(":un", $un);
+
+			return $query->execute();
+		}
+		else {
+			return false;
+		}
+	}
+
+	private function validateOldPassword($oldPw, $un) {
+		$pw = hash("sha512", $oldPw);
+
+		$query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+		$query->bindParam(":un", $un);
+		$query->bindParam(":pw", $pw);
+
+		$query->execute();
+
+		if ($query->rowCount() == 0) {
+			array_push($this->errorArray, Constants::$passwordIncorrect);
+		}
+	}
+
 	public function insertUserDetails($fn, $ln, $un, $em, $pw) {
 
 		$pw = hash("sha512", $pw);
@@ -108,6 +158,23 @@ class Account {
 		}
 	}
 
+	private function validateNewEmail($em, $un) {
+
+		if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+			array_push($this->errorArray, Constants::$emailInvalid);
+			return;
+		}
+
+		$query = $this->con->prepare("SELECT email FROM users WHERE email=:em AND username != :un");
+		$query->bindParam(":em", $em);
+		$query->bindParam(":un", $un);
+		$query->execute();
+
+		if ($query->rowCount() != 0) {
+			array_push($this->errorArray, Constants::$emailTaken);
+		}
+	}
+
 	private function validatePasswords($pw, $pw2) {
 		if ($pw != $pw2) {
 			array_push($this->errorArray, Constants::$passwordsDoNotMatch);
@@ -128,6 +195,15 @@ class Account {
 	public function getError($error) {
 		if (in_array($error, $this->errorArray)) {
 			return "<span class='errorMessage'>$error</span>";
+		}
+	}
+
+	public function getFirstError() {
+		if (!empty($this->errorArray)) {
+			return $this->errorArray[0];
+		}
+		else {
+			return "";
 		}
 	}
 
