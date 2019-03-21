@@ -876,3 +876,40 @@ a:focus {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.editVideoContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.editVideoContainer .topSection {
+	display: flex;
+	justify-content: space-around;
+}
+
+.editVideoContainer .topSection .videoPlayer {
+	max-height: 340px;
+	max-width: 600px;
+	flex: 1;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer {
+	display: flex;
+	flex-direction: column;
+	margin: 0 10px;
+	width: 210px;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem {
+	margin-bottom: 10px;
+	padding: 2px;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem.selected {
+	border: 3px solid #828282;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem img {
+	width: 100%;
+	cursor: pointer;
+}
