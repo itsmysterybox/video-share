@@ -1,5 +1,6 @@
 <?php
 require_once("includes/classes/VideoInfoControls.php");
+require_once("PurifyInputs.php");
 class VideoInfoSection {
 	private $con, $video, $userLoggedInObj;
 
@@ -29,6 +30,7 @@ class VideoInfoSection {
 	}
 	public function createSecondaryInfo() {
 		$description = $this->video->getDescription();
+		$description = PurifyInputs::formatLinksInText($description);
 		$uploadDate = $this->video->getUploadDate();
 		$uploadedBy = $this->video->getUploadedBy();
 		$profileButton = ButtonProvider::createUserProfileButton($this->con, $uploadedBy);

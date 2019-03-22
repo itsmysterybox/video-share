@@ -9,19 +9,28 @@ if (!isset($_POST["uploadButton"])) {
 	exit();
 }
 
+$titleInput = PurifyInputs::removeHtmlTags($_POST["titleInput"]);
+$descriptionInput = PurifyInputs::removeHtmlTags($_POST["descriptionInput"]);
+$wasSuccessful = false;
+
 // 1. Create file upload data
 $videoUploadData = new VideoUploadData(
 							$_FILES["fileInput"],
-							PurifyInputs::removeHtmlTags($_POST["titleInput"]),
-							PurifyInputs::removeHtmlTags($_POST["descriptionInput"]),
+							$titleInput,
+							$descriptionInput,
 							$_POST["privacyInput"],
 							$_POST["categoryInput"],
 							$userLoggedInObj->getUsername()
 							);
 
-// 2. Process video data (upload)
-$videoProcessor = new VideoProcessor($con);
-$wasSuccessful = $videoProcessor->upload($videoUploadData);
+if(empty($descriptionInput)) {
+	echo "ERROR: No description provided";
+}
+else {
+	// 2. Process video data (upload)
+	$videoProcessor = new VideoProcessor($con);
+	$wasSuccessful = $videoProcessor->upload($videoUploadData);
+}
 
 // 3. Check if upload was successful
 if ($wasSuccessful) {

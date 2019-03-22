@@ -1,12 +1,12 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/video-share/htmlpurifier/HTMLPurifier.standalone.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Projects/VideoTube/htmlpurifier/HTMLPurifier.standalone.php');
 class PurifyInputs {
 	
 	public static function removeHtmlTags($input) {		
 		$config = HTMLPurifier_Config::createDefault();
 		$config->set('HTML.Allowed', '');
 		$purifier = new HTMLPurifier($config);
-		return $purifier->purify($input);
+		return trim($purifier->purify($input));
 	}
 
 	public static function formatLinksInText($text) {
@@ -25,6 +25,9 @@ class PurifyInputs {
 
 	    return $text;
 	}
+
+	// Detect words enclosed within *, _, -, 
+
 	// Detect and remove abusive words
 }
 ?>

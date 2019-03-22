@@ -2,7 +2,7 @@
 require_once("../includes/config.php");
 require_once("../includes/classes/User.php");
 require_once("../includes/classes/Comment.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/video-share/includes/classes/PurifyInputs.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Projects/VideoTube/includes/classes/PurifyInputs.php");
 
 if (isset($_POST['commentText']) && isset($_POST['postedBy']) && isset($_POST['videoId'])) {
 
@@ -19,6 +19,13 @@ if (isset($_POST['commentText']) && isset($_POST['postedBy']) && isset($_POST['v
 	$responseTo = isset($_POST['responseTo']) ? $_POST['responseTo'] : 0;
 	$commentText = PurifyInputs::removeHtmlTags($_POST['commentText']);
 	$commentText = PurifyInputs::formatLinksInText($commentText);
+
+	if (empty($commentText)) {
+		echo '<script language="javascript">';
+		echo 'alert("You can\'t post an empty comment!")';
+		echo '</script>';
+		exit();
+	}
 
 	$query->execute();
 

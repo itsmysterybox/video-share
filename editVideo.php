@@ -23,16 +23,23 @@ if ($video->getUploadedBy() != $userLoggedInObj->getUsername()) {
 
 $detailsMessage = "";
 if (isset($_POST["saveButton"])) {
+	$titleInput = PurifyInputs::removeHtmlTags($_POST["titleInput"]);
+	$descriptionInput = PurifyInputs::removeHtmlTags($_POST["descriptionInput"]);
 	$videoData = new VideoUploadData(
 		null,
-		PurifyInputs::removeHtmlTags($_POST["titleInput"]),
-		PurifyInputs::removeHtmlTags($_POST["descriptionInput"]),
+		$titleInput,
+		$descriptionInput,
 		$_POST["privacyInput"],
 		$_POST["categoryInput"],
 		$userLoggedInObj->getUsername()
 	);
 
-	if ($videoData->updateDetails($con, $video->getId())) {
+	if(empty($descriptionInput)) {
+		$detailsMessage = "<div class='alert alert-danger'>
+							<strong>ERROR!</strong> Description wasn't provided. Rolled back all changes to last revision.
+						</div>";
+	}
+	else if ($videoData->updateDetails($con, $video->getId())) {
 		$detailsMessage = "<div class='alert alert-success'>
 								<strong>SUCCESS!</strong> Details updated successfully!
 							</div>";
