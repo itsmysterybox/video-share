@@ -19,7 +19,7 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link id="themeMode" rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -51,6 +51,16 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
 			</div>
 
 			<div class="rightIcons">
+				<?php
+				if ($_COOKIE['css'] == 'http://localhost/Projects/VideoTube/assets/css/style.css') {
+					$themeModeText = "DARK";
+				}
+				else {
+					$themeModeText = "LIGHT";
+				}
+			    
+				echo "<span id='toggleTheme'>$themeModeText</span>";
+				?>
 				<a href="upload.php">
 					<img class="upload" src="assets/images/icons/upload.png">
 				</a>

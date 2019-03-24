@@ -49,8 +49,23 @@ a:focus {
 	outline: none;
 }
 
+#toggleTheme {
+	cursor: pointer;
+	margin-right: 15px;
+	color: #171717;
+	border: 1px solid #171717;
+}
+
+#toggleTheme:hover {
+	color: #fff;
+	background-color: #171717;
+	transition: all 0.5s ease-out;
+}
+
 #mastHeadContainer .rightIcons {
 	height: 100%;
+	display: flex;
+	align-items: center;
 }
 
 #mastHeadContainer button img {
@@ -684,9 +699,8 @@ a:focus {
 	content: '';
 }
 
-.signInLink {
-	color: #065fd4;
-	border: 1px solid #065fd4;
+.signInLink,
+#toggleTheme {
 	border-radius: 2px 3px;
 	padding: 9px 15px;
 	text-transform: uppercase;
@@ -695,6 +709,11 @@ a:focus {
 	letter-spacing: .007px;
 	margin-left: 15px;
 	vertical-align: middle;
+}
+
+.signInLink {
+	color: #065fd4;
+	border: 1px solid #065fd4;
 }
 
 .signInLink:hover {
