@@ -1,0 +1,968 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+::selection {
+  color: black;
+  background: #ff6d00;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+button:focus,
+a:focus {
+	outline: none;
+}
+
+#pageContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #131313;
+}
+
+#mastHeadContainer {
+  width: 100%;
+  height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 7px 16px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #1d1d1d;
+  background-color: #171717;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+#mastHeadContainer button:not(.searchButton),
+#mastHeadContainer .rightIcons img {
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	padding: 8px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+	outline: none;
+}
+
+#toggleTheme {
+	cursor: pointer;
+	margin-right: 15px;
+	color: #f7f8fa;
+	border: 1px solid #f7f8fa;
+}
+
+#toggleTheme:hover {
+	color: #111;
+	background-color: #f7f8fa;
+	transition: all 0.5s ease-out;
+}
+
+#mastHeadContainer .rightIcons {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+#mastHeadContainer button img {
+	width: 100%;
+}
+
+#mastHeadContainer .logoContainer {
+	width: 150px;
+}
+
+#mastHeadContainer .logoContainer img {
+	height: 25px;
+	margin-left: 8px;
+}
+
+#mastHeadContainer .searchBarContainer {
+	margin: 0 40px;
+	flex: 1;
+	display: flex;
+}
+
+#mastHeadContainer .searchBarContainer form {
+	flex: 1;
+	display: flex;
+}
+
+#mastHeadContainer .searchBarContainer .searchBar {
+	flex: 1;
+	max-width: 600px;
+	color: #f7f8fa;
+	background-color: #2a323f;
+	padding: 2px 16px;
+	font-size: 15px;
+	border: 1px solid #181a1d;
+	border-radius: 20px;
+	border-right: none;
+	height: 32px;
+}
+
+#mastHeadContainer .searchBarContainer .searchButton {
+	display: none;
+	/* height: 32px;
+	background-color: #2a323f;
+	border: 1px solid #181a1d;
+	border-bottom-right-radius: 2px;
+	border-top-right-radius: 2px;
+	cursor: pointer;
+	width: 65px;
+	outline: none;
+ */}
+
+/* #mastHeadContainer .searchBarContainer .searchButton img {
+	height: 20px;
+	width: 20px;
+} */
+
+#sideNavContainer {
+	width: 240px;
+	background-color: #1d1d1d;
+	padding-top: 56px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+#mainSectionContainer {
+	padding-top: 56px;
+	display: flex;
+}
+
+#mainSectionContainer.leftPadding {
+	padding-left: 240px;
+}
+
+#mainContentContainer {
+	padding: 10px 30px;
+	display: flex;
+	flex: 1;
+	background-color: #131313;
+	box-sizing: border-box;
+}
+
+.column {
+	flex-grow: 1;
+	background-color: #1d1d1d;
+	min-height: 300px;
+	padding: 20px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+}
+
+.signInContainer {
+	background-color: #efefee;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.signInContainer .column .header img {
+	width: 100px;
+}
+
+.signInContainer .column {
+	flex-grow: 0;
+	width: 450px;
+	padding: 20px 35px;
+	max-height: 100%;
+	overflow-y: auto;
+}
+
+.signInContainer .column .header {
+	padding: 20px 0;
+}
+
+.signInContainer .column .header h3 {
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 32px;
+	margin: 0;
+	padding-bottom: 0;
+	padding-top: 16px;
+}
+
+.signInContainer .column .header span {
+	font-size: 14px;
+}
+
+.signInContainer .column form {
+	display: flex;
+	flex-direction: column;
+}
+
+.signInContainer .column form input[type="text"],
+.signInContainer .column form input[type="email"],
+.signInContainer .column form input[type="password"] {
+	font-size: 14px;
+	margin: 10px 0;
+	border: none;
+	border-bottom: 1px solid #dedede;
+}
+
+.signInContainer .column form input[type="submit"] {
+	background: #4285f4;
+	color: #171717;
+	height: 36px;
+	width: 88px;
+	/* border: none; */
+	border-radius: 3px;
+	font-weight: 500;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.signInMessage {
+	font-size: 14px;
+	font-weight: 400;
+	color: #212529;
+}
+
+.errorMessage {
+	color: #f00;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.watchLeftColumn {
+	flex: 1;
+}
+
+.watchLeftColumn .videoPlayer {
+	width: 100%;
+}
+
+.videoPlayer {
+	outline: none;
+}
+
+.suggestions {
+	max-width: 425px;
+	flex-grow: 1;
+	height: 100%;
+	padding-left: 24px;
+}
+
+.videoInfo {
+	color: #fff;
+	width: 100%;
+	padding: 20px 0 8px 0;
+}
+
+.videoInfo h1 {
+	display: block;
+	overflow: hidden;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.videoInfo .bottomSection {
+	display: flex;
+}
+
+.videoInfo .bottomSection .viewCount {
+	color: #fff;
+	font-size: 16px;
+	flex: 1;
+}
+
+.videoInfo .bottomSection .controls {
+	flex: 1;
+	text-align: right;
+}
+
+.videoInfo .bottomSection .controls button {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	color: #fff;
+	font-weight: 500;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.videoInfo .bottomSection .controls button img {
+	height: 20px;
+	width: 20px;
+	margin: 4px 8px 8px 8px;
+}
+
+.secondaryInfo .topRow {
+	display: flex;
+	margin-bottom: 12px;
+}
+
+.profilePicture {
+	height: 100%;
+}
+
+.secondaryInfo .topRow .profilePicture {
+	margin-right: 16px;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+}
+
+.secondaryInfo .topRow .uploadInfo {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
+}
+
+.secondaryInfo .topRow .uploadInfo .date {
+	color: #fff;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.secondaryInfo .descriptionContainer {
+	color: #fff;
+	margin-left: 64px;
+	max-width: 615px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 21px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre-line;
+}
+
+.secondaryInfo {
+	border-bottom: 1px solid #424242;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.secondaryInfo .topRow .button {
+	padding: 6px 15px;
+	cursor: pointer;
+	font-weight: 500;
+	border-radius: 2px;
+	border: none;
+	font-size: 14px;
+}
+
+.secondaryInfo .topRow .subscribeButtonContainer,
+.secondaryInfo .topRow .editVideoButtonContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.subscribeButtonContainer .subscribe {
+	background-color: #f00;
+	color: #fff;
+}
+
+.subscribeButtonContainer .unsubscribe {
+	background-color: #292c38;
+	color: #6d6d6d;
+}
+
+.editVideoButtonContainer .edit {
+	background-color: #292c38;
+	color: #e0e0e0;
+}
+
+.secondaryInfo .topRow .uploadInfo .owner a {
+	font-size: 14px;
+	font-weight: 500;
+	color: #f7f8fa;
+}
+
+.commentSection .header {
+	margin-top: 24px;
+	margin-bottom: 32px;
+	display: flex;
+	flex-direction: column;
+}
+
+.commentSection .header .commentForm .profilePicture,
+.commentSection .comment .profilePicture,
+.commentForm .profilePicture {
+	margin-right: 16px;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+}
+
+.commentSection .header .commentCount {
+	color: #fff;
+	margin-bottom: 24px;
+}
+
+.commentSection .header .commentForm,
+.itemContainer .commentForm {
+	display: flex;
+}
+
+.commentSection .header .commentForm textarea,
+.itemContainer .commentForm textarea {
+	flex: 1;
+	border: none;
+	background-color: transparent;
+	font-size: 14px;
+	color: #f7f8fa;
+	resize: none;
+}
+
+.itemContainer .commentForm textarea {
+	height: 30px;
+}
+
+.commentSection .header .commentForm .postComment,
+.itemContainer .commentForm .postComment,
+.itemContainer .commentForm .cancelComment {
+	height: 36px;
+	background-color: #292c38;
+	color: #e0e0e0;
+	font-weight: 500;
+	border: none;
+	padding: 0 15px;
+	border-radius: 2px;
+}
+
+.itemContainer .commentForm .cancelComment {
+	background-color: transparent;
+	color: #e0e0e0;
+}
+
+.itemContainer .commentForm .cancelComment:hover {
+	background-color: #292c38;
+	margin-right: 2px;
+}
+
+.commentSection .header .customCommentBox {
+	min-height: 20px;
+	padding: 19px;
+	color: #fff;
+	background-color: #424242;
+	border: none;
+}
+
+.commentSection .header .customCommentBox span a:hover,
+.commentSection .header .customCommentBox span a {
+	color: #ff0;
+}
+
+.commentSection .itemContainer {
+	margin-bottom: 16px;
+}
+
+.commentSection .comment {
+	display: flex;
+}
+
+.commentSection .CommentHeader {
+	margin-bottom: 2px;
+}
+
+.commentSection .comment .username {
+	margin-right: 8px;
+	color: #f7f8fa;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.commentSection .comment .body {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	white-space: pre-line;
+}
+
+.itemContainer .controls {
+	margin-left: 64px;
+}
+
+.itemContainer .controls button,
+.itemContainer .controls .likesCount {
+	height: 32px;
+	background-color: transparent;
+	border: none;
+	font-size: 13px;
+	font-weight: 500;
+	color: #fff;
+}
+
+.itemContainer .controls button {
+	cursor: pointer;
+}
+
+.itemContainer .controls .likesCount {
+	margin: 0 5px;
+}
+
+.itemContainer .controls button img {
+	height: 16px;
+}
+
+.itemContainer .commentForm .profilePicture {
+	width: 30px;
+	height: 30px;
+}
+
+.commentSection .comment .timestamp {
+	color: #888;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 18px;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.comments .repliesSection {
+	padding-left: 64px;
+	margin-top: 16px;
+}
+
+.commentSection .itemContainer .viewReplies {
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.videoGrid {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.videoGrid .videoGridItems {
+	margin: 0 2.42px;
+}
+
+.suggestions .videoGridItem {
+	display: flex;
+	height: auto;
+}
+
+.videoGridItem {
+	height: 200px;
+	margin-bottom: 24px;
+}
+
+.videoGridItem .thumbnail {
+	width: 210px;
+	height: 118px;
+	position: relative;
+}
+
+.suggestions .videoGridItem .thumbnail {
+	margin-right: 8px;
+}
+
+.videoGridItem .thumbnail img {
+	width: 100%;
+	height: 100%;
+}
+
+.videoGridItem .thumbnail .duration {
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	margin: 4px;
+	color: #fff;
+	background-color: #171717;
+	opacity: 0.8;
+	padding: 2px 4px;
+	border-radius: 2px;
+	letter-spacing: 0.5px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 12px;
+}
+
+.videoGridItem .details {
+	padding-right: 24px;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	width: 210px;
+}
+
+.suggestions .videoGridItem .details {
+	padding-right: 0;
+	flex: 1;
+}
+
+.videoGridItem .details .title {
+	margin: 8px 0 2px 0;
+	max-height: 32px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	color: #fff;
+}
+
+.videoGridItem .details .username,
+.videoGridItem .details .stats {
+	color: #fff;
+	font-size: 13px;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.videoGridHeader {
+	color: #fff;
+	font-size: 14px;
+	display: flex;
+	margin: 10px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #424242;
+}
+
+.videoGridHeader div {
+	flex: 1;
+}
+
+.videoGrid.large {
+	flex-direction: column;
+	flex: 1;
+	margin-right: 25%;
+}
+
+.videoGrid.large .videoGridItem {
+	height: auto;
+	display: flex;
+}
+
+.videoGrid.large .videoGridItem .thumbnail {
+	width: 246px;
+	height: 138px;
+	margin-right: 16px;
+}
+
+.videoGrid.large .videoGridItem .details {
+	max-width: 600px;
+	min-width: 0;
+	text-decoration: none;
+	flex: 1;
+}
+
+.videoGrid.large .videoGridItem .details .title {
+	font-size: 18px;
+	font-weight: 400;
+	max-height: 48px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 24px;
+	min-width: 0;
+	margin-top: 2px;
+}
+
+.videoGrid.large .videoGridItem .details .username {
+	overflow: hidden;
+}
+
+.videoGridItem .details .description {
+	color: #fff;
+	font-size: 13px;
+	max-height: 3rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 400;
+	margin-top: 2px;
+}
+
+.largeVideoGridContainer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.videoGridHeader .right {
+	text-align: right;
+}
+
+.videoGridHeader a {
+	color: #9e9e9e;
+}
+
+.videoGridHeader a:after {
+	content: ' |';
+}
+
+.videoGridHeader a:last-child:after {
+	content: '';
+}
+
+.signInLink,
+#toggleTheme {
+	border-radius: 2px 3px;
+	padding: 9px 15px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: .007px;
+	margin-left: 15px;
+	vertical-align: middle;
+}
+
+.signInLink {
+	color: #f4c20d;
+	border: 1px solid #f4c20d;
+}
+
+.signInLink:hover {
+	color: #171717;
+	background-color: #f4c20d;
+	transition: all 0.5s ease-out;
+}
+
+#sideNavContainer .navigationItems {
+	overflow-y: auto;
+}
+
+#sideNavContainer .navigationItem {
+	height: 40px;
+	display: flex;
+}
+
+#sideNavContainer .navigationItem img {
+	height: 18px;
+	margin-right: 20px;
+}
+
+#sideNavContainer .navigationItem span {
+	flex: 1;
+	font-size: 14px;
+	padding: 7px;
+}
+
+#sideNavContainer .navigationItem a {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	padding: 0 24px;
+	color: #949595;
+}
+
+#sideNavContainer .navigationItem span:hover {
+	color: #fff;
+	background-color: #ff2e2e;
+	border-radius: 10px;
+	transition: all 0.5s ease-out;
+}
+
+#sideNavContainer .heading {
+	color: #ff2e2e;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 10px 24px 0;
+	border-top: 1px solid #424242;
+	display: block;
+}
+
+.profileContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.profileContainer .coverPhotoContainer {
+	height: calc(100vw / 6.2 - 1px);
+	display: flex;
+	position: relative;
+}
+
+.coverPhotoContainer .coverPhoto {
+	width: 100%;
+	object-fit: cover;
+	max-height: 100%;
+	vertical-align: middle;
+}
+
+.coverPhotoContainer .channelName {
+	position: absolute;
+	top: calc(50% - 40px);
+	font-size: 50px;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	letter-spacing: 5px;
+}
+
+.profileHeader {
+	padding: 15px 100px 0 100px;
+	display: flex;
+	height: 96px;
+}
+
+.profileHeader .userInfoContainer {
+	flex: 1;
+	display: flex;
+}
+
+.profileHeader .userInfoContainer .profileImage {
+	height: 80px;
+	width: 80px;
+	margin-right: 24px;
+}
+
+.profileHeader .userInfoContainer .userInfo {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.profileHeader .userInfoContainer .userInfo .title {
+	font-size: 24px;
+	font-weight: 400;
+	color: #fff;
+}
+
+.profileHeader .userInfoContainer .userInfo .subscriberCount {
+	font-size: 14px;
+	color: #fff;
+}
+
+.profileHeader .buttonContainer {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.profileHeader .buttonContainer .buttonItem {
+	align-items: center;
+	display: flex;
+}
+
+.profileHeader .buttonContainer .buttonItem button {
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: 500;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.profileContainer .channelContent {
+	padding-top: 20px;
+	border: none;
+}
+
+.profileContainer .nav-tabs {
+	margin-top: 10px;
+	border: none;
+}
+
+.nav-item a {
+	color: #fff;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.nav-item .nav-link.active,
+.nav-item .nav-link:hover {
+	border: none;
+	color: #949595;
+}
+
+.nav-item .nav-link.active {
+	background-color: transparent;
+	border-bottom: 3px solid #f00;
+	transition: none;
+}
+
+.channelContent .section {
+	padding: 0 20px 20px 20px;
+}
+
+.channelContent .section .title {
+	color: #757575;
+}
+
+.channelContent .section .values {
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+}
+
+.formSection:not(:last-child) {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #424242;
+}
+
+.settingsContainer form {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.settingsContainer form .title {
+	color: #fff;
+}
+
+.editVideoContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.editVideoContainer .topSection {
+	display: flex;
+	justify-content: space-around;
+}
+
+.editVideoContainer .topSection .videoPlayer {
+	max-height: 340px;
+	max-width: 600px;
+	flex: 1;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer {
+	display: flex;
+	flex-direction: column;
+	margin: 0 10px;
+	width: 210px;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem {
+	margin-bottom: 10px;
+	padding: 2px;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem.selected {
+	border: 3px solid #828282;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem img {
+	width: 100%;
+	cursor: pointer;
+}
+
+.column form .form-group .form-control {
+	color: #f7f8fa;
+	background-color: #424242;
+	border: none;
+}
+
+.column .form-group label,
+.column .form-group .form-control-file {
+	color: #fff;
+}
