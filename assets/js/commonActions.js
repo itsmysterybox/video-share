@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     var themeModeText = document.getElementById('toggleTheme');
     themeModeText.addEventListener('click', function (event) {
-        
+        var e = document.getElementById('themeMode');
         if (e.href.match("assets/css/style.css")) {
             e.href = "assets/css/dark.css";
             themeModeText.textContent = "LIGHT";
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded',function(){
         }
         
         if(readCookie('css')){  
-            eraseCookie('css');     
+            eraseCookie('css');    
         }
         createCookie('css',e.href,365); 
         event.preventDefault(); 

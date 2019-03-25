@@ -52,11 +52,16 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
 
 			<div class="rightIcons">
 				<?php
-				if ($_COOKIE['css'] == 'http://localhost/Projects/VideoTube/assets/css/style.css') {
-					$themeModeText = "DARK";
+				if (isset($_COOKIE['css'])) {
+					if ($_COOKIE['css'] == 'http://localhost/Projects/VideoTube/assets/css/style.css') {
+						$themeModeText = "DARK";
+					}
+					else {
+						$themeModeText = "LIGHT";
+					}
 				}
 				else {
-					$themeModeText = "LIGHT";
+					$themeModeText = "DARK";
 				}
 			    
 				echo "<span id='toggleTheme'>$themeModeText</span>";
