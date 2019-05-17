@@ -14,4 +14,4 @@ VideoShare is a video sharing platform written in PHP. Users can upload, watch, 
 VideoShare comes with two themes - Light and Dark.
 
 ## Screenshot
-![alt text][https://raw.githubusercontent.com/itsmysterybox/video-share/master/Screenshots/videoshare.png]
+![Screenshot of homepage](https://raw.githubusercontent.com/itsmysterybox/video-share/master/Screenshots/videoshare.png)
