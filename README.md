@@ -1,4 +1,7 @@
 # VideoShare
+
+> This project was started as learning purposes and is no longer maintained.
+
 VideoShare is a video sharing platform written in PHP. Users can upload, watch, like & comment a video, see trending, subscription, suggested & liked videos. They can subscribe to the channels and more..
 
 ### Table of Contents
